@@ -11,7 +11,10 @@ function getNewPixel(gridWidthInPixels, gridHeightInPixels) {
   const pixelHeight = gridHeight / gridHeightInPixels;
 
   const pixelElement = document.createElement("div");
-  pixelElement.style.cssText = `border: 1px solid #1f2024; width: ${pixelWidth}px; height: ${pixelHeight}px; flex: 0 0 auto`;
+  pixelElement.classList.add("pixel");
+  pixelElement.style.cssText = `width: ${pixelWidth}px; height: ${pixelHeight}px; flex: 0 0 auto`;
+
+  // plugClickEventListener(pixelElement);
   return pixelElement;
 }
 
@@ -19,5 +22,29 @@ function constructPixelGrid(width, height = width) {
   // Spawn pixel elements the size of the canvas
   for (let i = 0; i < width * height; i++) {
     gridElement.appendChild(getNewPixel(width, height));
+  }
+}
+//function plugClickEventListener(pixelElement) {
+//  pixelElement.addEventListener("mouseenter", (event) => onPixelClicked(event));
+//}
+
+function checkIfElementIsPixel(e) {}
+
+function handlePixelPainting() {
+  //To allow click and drag/paint over multiple pixels instead of only allowing one pixel
+  //to be clicked/painted with each click
+
+  gridElement.addEventListener("mousedown", allowPainting);
+  gridElement.addEventListener("mouseup", disallowPainting);
+
+  function allowPainting(e) {
+    gridElement.addEventListener("mousemove", onPixelClicked);
+  }
+  function disallowPainting(e) {
+    gridElement.removeEventListener("mousemove", onPixelClicked);
+  }
+
+  function onPixelClicked(event) {
+    event.target.classList.add("pixel--clicked");
   }
 }
