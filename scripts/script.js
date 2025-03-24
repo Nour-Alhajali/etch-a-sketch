@@ -2,6 +2,7 @@ const gridElement = document.querySelector(".paint-paper__grid");
 
 constructPixelGrid(16);
 handlePixelPainting();
+preventBrowserDragBehaviour();
 
 function getNewPixel(gridWidthInPixels, gridHeightInPixels) {
   //Get pixel width and height according to actual canvas size the the size in pixel elements
@@ -25,9 +26,6 @@ function constructPixelGrid(width, height = width) {
     gridElement.appendChild(getNewPixel(width, height));
   }
 }
-//function plugClickEventListener(pixelElement) {
-//  pixelElement.addEventListener("mouseenter", (event) => onPixelClicked(event));
-//}
 
 function handlePixelPainting() {
   //To allow click and drag/paint over multiple pixels instead of only allowing one pixel
@@ -36,25 +34,37 @@ function handlePixelPainting() {
   gridElement.addEventListener("mousedown", allowPainting);
   gridElement.addEventListener("mouseup", disallowPainting);
 
-  function allowPainting(e) {
-    if (checkIfElementIsPixel(e)) {
+  function allowPainting(event) {
+    if (checkIfElementIsPixel(event)) {
+      onPixelClicked(event);
+
       gridElement.addEventListener("mousemove", onPixelClicked);
     }
   }
-  function disallowPainting(e) {
-    if (checkIfElementIsPixel(e)) {
+  function disallowPainting(event) {
+    if (checkIfElementIsPixel(event)) {
       gridElement.removeEventListener("mousemove", onPixelClicked);
     }
   }
 
   function onPixelClicked(event) {
-    event.target.classList.add("pixel--clicked");
+    if (event.button === 0) {
+      event.target.classList.add("pixel--clicked");
+    } else if (event.button === 1) {
+      event.target.classList.remove("pixel--clicked");
+    }
   }
 
-  function checkIfElementIsPixel(e) {
-    if (e.target.className.includes("pixel")) {
+  function checkIfElementIsPixel(event) {
+    if (event.target.className.includes("pixel")) {
       return true;
     }
     return false;
   }
+}
+
+function preventBrowserDragBehaviour() {
+  document.addEventListener("dragstart", (e) => {
+    e.preventDefault();
+  });
 }
