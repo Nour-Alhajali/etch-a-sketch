@@ -79,3 +79,15 @@ body {
     height: 100%;
   }
 }
+
+.pixel {
+  border: 1px solid $color-background-dark;
+
+  flex: 0 0 auto;
+}
+.pixel:hover {
+  background-color: $color-background-dark;
+}
+.pixel--clicked {
+  background-color: $color-background-dark;
+}
