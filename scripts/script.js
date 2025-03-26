@@ -1,5 +1,11 @@
 const gridElement = document.querySelector(".paint-paper__grid");
 
+const colorControlsElement = document.querySelector(
+  ".paint-paper__controls__color-controls"
+);
+const colorControlCustomElement = document.querySelector(
+  "#color-control-custom"
+);
 const defaultPenColor1 = "#1f2024";
 const defaultPenColor2 = "#8ae9ec";
 let currentPenColor = defaultPenColor1;
@@ -7,6 +13,7 @@ let currentPenColor = defaultPenColor1;
 constructPixelGrid(16);
 handlePixelPainting();
 preventBrowserDragBehaviour();
+handleColorControls();
 
 function constructPixelGrid(width, height = width) {
   // Spawn pixel elements the size of the canvas
@@ -70,5 +77,21 @@ function handlePixelPainting() {
 function preventBrowserDragBehaviour() {
   document.addEventListener("dragstart", (e) => {
     e.preventDefault();
+  });
+}
+
+function handleColorControls() {
+  colorControlsElement.addEventListener("click", (e) => {
+    switch (e.target.id) {
+      case "color-control-1":
+        currentPenColor = defaultPenColor1;
+        break;
+      case "color-control-2":
+        currentPenColor = defaultPenColor2;
+        break;
+    }
+  });
+  colorControlCustomElement.addEventListener("change", (e) => {
+    currentPenColor = e.target.value;
   });
 }
