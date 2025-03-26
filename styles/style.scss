@@ -1,7 +1,6 @@
 /* Scss Variables */
-$color-background-dark: #1f2024;
-$color-background-light: #8ae9ec;
-
+$--color-background-dark: #1f2024;
+$--color-background-light: #8ae9ec;
 /* Css Reset */
 * {
   margin: 0;
@@ -19,14 +18,14 @@ body {
 
   overflow: hidden;
 
-  background-color: $color-background-dark;
+  background-color: $--color-background-dark;
 }
 
 .paint-paper {
   width: min(45rem, 95vw);
   height: min(45rem, 95vw);
 
-  border: 2px solid $color-background-light;
+  border: 2px solid $--color-background-light;
 
   position: relative;
   &__controls {
@@ -41,13 +40,54 @@ body {
     bottom: 0%;
     left: -5%;
 
-    background-color: $color-background-light;
+    background-color: $--color-background-light;
+
+    display: flex;
+    flex-direction: column;
+
+    padding-block: 0.5rem;
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__color-controls {
+      &__button {
+        width: 2rem;
+        height: 2rem;
+
+        border: 2px solid $--color-background-dark;
+        border-radius: 1rem;
+
+        margin-inline: auto;
+
+        margin-top: 0.5rem;
+
+        &:nth-child(1) {
+          background-color: $--color-background-dark;
+        }
+        &:nth-child(2) {
+          background-color: $--color-background-light;
+        }
+        &:nth-child(3) {
+          padding: 0.2rem;
+          background-color: $--color-background-light;
+        }
+      }
+    }
+
+    &__tool-controls {
+    }
+
+    &__canvas-controls {
+    }
   }
   &__upper-decoration {
     height: 5%;
     margin-inline: 30%;
 
-    background-color: $color-background-light;
+    background-color: $--color-background-light;
 
     position: absolute;
     left: 0%;
@@ -62,7 +102,7 @@ body {
       width: 80%;
       height: 2px;
 
-      background-color: $color-background-dark;
+      background-color: $--color-background-dark;
     }
   }
   &__grid {
@@ -81,13 +121,10 @@ body {
 }
 
 .pixel {
-  border: 1px solid $color-background-dark;
+  border: 1px solid $--color-background-dark;
 
   flex: 0 0 auto;
 }
 .pixel:hover {
-  background-color: $color-background-dark;
-}
-.pixel--clicked {
-  background-color: $color-background-dark;
+  background-color: $--color-background-dark;
 }
