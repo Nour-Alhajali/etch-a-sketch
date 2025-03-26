@@ -62,6 +62,13 @@ body {
   scale: 1.1;
   border-color: white;
 }
+.paint-paper__controls__hdivider {
+  height: 2px;
+  margin-inline: 10%;
+  background-color: #1f2024;
+  border: none;
+  margin-block: 0.5rem;
+}
 .paint-paper__upper-decoration {
   height: 5%;
   margin-inline: 30%;

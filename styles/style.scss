@@ -87,6 +87,18 @@ body {
 
     &__canvas-controls {
     }
+
+    &__hdivider {
+      height: 2px;
+
+      margin-inline: 10%;
+
+      background-color: $--color-background-dark;
+
+      border: none;
+
+      margin-block: 0.5rem;
+    }
   }
   &__upper-decoration {
     height: 5%;
