@@ -9,6 +9,7 @@ const colorControlCustomElement = document.querySelector(
 const defaultPenColor1 = "#1f2024";
 const defaultPenColor2 = "#8ae9ec";
 let currentPenColor = defaultPenColor1;
+let selectedColorControlId = "#";
 
 constructPixelGrid(16);
 handlePixelPainting();
@@ -85,13 +86,36 @@ function handleColorControls() {
     switch (e.target.id) {
       case "color-control-1":
         currentPenColor = defaultPenColor1;
+        selectedColorControlId = e.target.id;
+        innotateSelectedColorControl();
         break;
       case "color-control-2":
         currentPenColor = defaultPenColor2;
+        selectedColorControlId = e.target.id;
+        innotateSelectedColorControl();
         break;
     }
   });
   colorControlCustomElement.addEventListener("change", (e) => {
     currentPenColor = e.target.value;
+    selectedColorControlId = e.target.id;
+
+    innotateSelectedColorControl();
   });
+
+  function innotateSelectedColorControl() {
+    const colorControlsElementChildren = colorControlsElement.children;
+
+    for (let i = 0; i < colorControlsElementChildren.length; i++) {
+      if (colorControlsElementChildren[i].id === selectedColorControlId) {
+        colorControlsElementChildren[i].classList.add(
+          "paint-paper__controls__color-controls__button--selected"
+        );
+      } else {
+        colorControlsElementChildren[i].classList.remove(
+          "paint-paper__controls__color-controls__button--selected"
+        );
+      }
+    }
+  }
 }

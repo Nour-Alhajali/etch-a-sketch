@@ -74,6 +74,11 @@ body {
           padding: 0.2rem;
           background-color: $--color-background-light;
         }
+
+        &--selected {
+          scale: 1.1;
+          border-color: white;
+        }
       }
     }
 

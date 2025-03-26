@@ -58,6 +58,10 @@ body {
   padding: 0.2rem;
   background-color: #8ae9ec;
 }
+.paint-paper__controls__color-controls__button--selected {
+  scale: 1.1;
+  border-color: white;
+}
 .paint-paper__upper-decoration {
   height: 5%;
   margin-inline: 30%;
