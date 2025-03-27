@@ -41,10 +41,10 @@ body {
   flex-direction: column;
 }
 .paint-paper__controls__color-controls__button {
-  width: 2rem;
-  height: 2rem;
+  width: 1.8rem;
+  height: 1.8rem;
   border: 2px solid #1f2024;
-  border-radius: 1rem;
+  border-radius: 0.9rem;
   margin-inline: auto;
   margin-top: 0.5rem;
 }
@@ -61,6 +61,27 @@ body {
 .paint-paper__controls__color-controls__button--selected {
   scale: 1.1;
   border-color: white;
+}
+.paint-paper__controls__tool-controls__button {
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-inline: auto;
+  background-color: transparent;
+  border: none;
+  background-size: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  margin-block: 0.1rem;
+}
+.paint-paper__controls__tool-controls__button:nth-child(1) {
+  background-image: url("../assets/images/pen-line-svgrepo-com.svg");
+}
+.paint-paper__controls__tool-controls__button:nth-child(2) {
+  background-image: url("../assets/images/eraser-svgrepo-com.svg");
+}
+.paint-paper__controls__tool-controls__button--selected {
+  scale: 1.01;
+  background-color: rgba(255, 255, 255, 0.438);
 }
 .paint-paper__controls__hdivider {
   height: 2px;

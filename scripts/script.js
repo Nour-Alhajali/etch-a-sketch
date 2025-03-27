@@ -11,11 +11,18 @@ const defaultPenColor2 = "#8ae9ec";
 let currentPenColor = defaultPenColor1;
 let selectedColorControlId = "#";
 
+const toolControlsElement = document.querySelector(
+  ".paint-paper__controls__tool-controls"
+);
+const penActions = ["paint", "erase"];
+let currentPenAction = penActions[0];
+let selectedToolControlId = "#";
+
 constructPixelGrid(16);
 handlePixelPainting();
 preventBrowserDragBehaviour();
 handleColorControls();
-
+handleToolControls();
 function constructPixelGrid(width, height = width) {
   // Spawn pixel elements the size of the canvas
   for (let i = 0; i < width * height; i++) {
@@ -61,9 +68,13 @@ function handlePixelPainting() {
 
   function onPixelClicked(event) {
     if (event.button === 0) {
-      event.target.style.backgroundColor = currentPenColor;
+      if (currentPenAction == penActions[0]) {
+        event.target.style.backgroundColor = currentPenColor;
+      } else {
+        event.target.style.backgroundColor = "#FFFFFF";
+      }
     } else if (event.button === 1) {
-      event.target.style.backgroundColor = "#FFFFFF";
+      event.target.style.backgroundColor = "#000000";
     }
   }
 
@@ -114,6 +125,39 @@ function handleColorControls() {
       } else {
         colorControlsElementChildren[i].classList.remove(
           "paint-paper__controls__color-controls__button--selected"
+        );
+      }
+    }
+  }
+}
+
+function handleToolControls() {
+  toolControlsElement.addEventListener("click", (e) => {
+    switch (e.target.id) {
+      case "tool-control-pen":
+        currentPenAction = penActions[0];
+        selectedToolControlId = e.target.id;
+        innotateSelectedToolControl();
+        break;
+      case "tool-control-eraser":
+        currentPenAction = penActions[1];
+        selectedToolControlId = e.target.id;
+        innotateSelectedToolControl();
+        break;
+    }
+  });
+
+  function innotateSelectedToolControl() {
+    const toolControlsElementChildren = toolControlsElement.children;
+
+    for (let i = 0; i < toolControlsElementChildren.length; i++) {
+      if (toolControlsElementChildren[i].id === selectedToolControlId) {
+        toolControlsElementChildren[i].classList.add(
+          "paint-paper__controls__tool-controls__button--selected"
+        );
+      } else {
+        toolControlsElementChildren[i].classList.remove(
+          "paint-paper__controls__tool-controls__button--selected"
         );
       }
     }

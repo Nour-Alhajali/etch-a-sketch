@@ -1,6 +1,8 @@
 /* Scss Variables */
 $--color-background-dark: #1f2024;
 $--color-background-light: #8ae9ec;
+
+$--size-control-button: 1.8rem;
 /* Css Reset */
 * {
   margin: 0;
@@ -54,11 +56,11 @@ body {
 
     &__color-controls {
       &__button {
-        width: 2rem;
-        height: 2rem;
+        width: $--size-control-button;
+        height: $--size-control-button;
 
         border: 2px solid $--color-background-dark;
-        border-radius: 1rem;
+        border-radius: $--size-control-button / 2;
 
         margin-inline: auto;
 
@@ -83,6 +85,33 @@ body {
     }
 
     &__tool-controls {
+      &__button {
+        width: $--size-control-button;
+        height: $--size-control-button;
+
+        margin-inline: auto;
+
+        background-color: transparent;
+        border: none;
+
+        background-size: 1.5rem;
+        background-repeat: no-repeat;
+        background-position: 50%;
+
+        margin-block: 0.1rem;
+        &:nth-child(1) {
+          background-image: url("../assets/images/pen-line-svgrepo-com.svg");
+        }
+
+        &:nth-child(2) {
+          background-image: url("../assets/images/eraser-svgrepo-com.svg");
+        }
+
+        &--selected {
+          scale: 1.01;
+          background-color: rgba(255, 255, 255, 0.438);
+        }
+      }
     }
 
     &__canvas-controls {
