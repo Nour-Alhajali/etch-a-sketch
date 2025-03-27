@@ -18,11 +18,16 @@ const penActions = ["paint", "erase"];
 let currentPenAction = penActions[0];
 let selectedToolControlId = "#";
 
+const canvasControlsElement = document.querySelector(
+  ".paint-paper__controls__canvas-controls"
+);
 constructPixelGrid(16);
 handlePixelPainting();
 preventBrowserDragBehaviour();
 handleColorControls();
 handleToolControls();
+handleCanvasControls();
+
 function constructPixelGrid(width, height = width) {
   // Spawn pixel elements the size of the canvas
   for (let i = 0; i < width * height; i++) {
@@ -156,6 +161,20 @@ function handleToolControls() {
           "paint-paper__controls__tool-controls__button--selected"
         );
       }
+    }
+  }
+}
+
+function handleCanvasControls() {
+  canvasControlsElement.addEventListener("click", (e) => {
+    eraseCanvasPixels();
+  });
+
+  function eraseCanvasPixels() {
+    const gridElementChildren = gridElement.children;
+
+    for (let i = 0; i < gridElementChildren.length; i++) {
+      gridElementChildren[i].style.backgroundColor = "#FFFFFF";
     }
   }
 }
