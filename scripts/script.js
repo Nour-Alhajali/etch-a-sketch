@@ -67,14 +67,10 @@ function handlePixelPainting() {
   }
 
   function onPixelClicked(event) {
-    if (event.button === 0) {
-      if (currentPenAction == penActions[0]) {
-        event.target.style.backgroundColor = currentPenColor;
-      } else {
-        event.target.style.backgroundColor = "#FFFFFF";
-      }
-    } else if (event.button === 1) {
-      event.target.style.backgroundColor = "#000000";
+    if (currentPenAction == penActions[0]) {
+      event.target.style.backgroundColor = currentPenColor;
+    } else {
+      event.target.style.backgroundColor = "#FFFFFF";
     }
   }
 
