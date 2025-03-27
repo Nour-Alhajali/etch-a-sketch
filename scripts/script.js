@@ -110,7 +110,8 @@ function handleColorControls() {
   });
   colorControlCustomElement.addEventListener("change", (e) => {
     currentPenColor = e.target.value;
-    selectedColorControlId = e.target.id;
+    //Apply parent's id since the event occurs on the child input
+    selectedColorControlId = e.target.parentElement.id;
 
     innotateSelectedColorControl();
   });
