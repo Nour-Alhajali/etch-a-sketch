@@ -83,6 +83,25 @@ body {
   scale: 1.01;
   background-color: rgba(255, 255, 255, 0.438);
 }
+.paint-paper__controls__canvas-controls__button {
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-inline: auto;
+  margin-bottom: 0.4rem;
+  background-color: transparent;
+  border: none;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+.paint-paper__controls__canvas-controls__button:nth-child(1) {
+  background-image: url("../assets/images/x.svg");
+}
+.paint-paper__controls__canvas-controls__button:nth-child(2) {
+  background-image: url("../assets/images/file-plus.svg");
+}
+.paint-paper__controls__canvas-controls__button:hover {
+  background-color: rgba(255, 255, 255, 0.438);
+}
 .paint-paper__controls__hdivider {
   height: 2px;
   margin-inline: 10%;

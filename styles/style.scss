@@ -1,6 +1,7 @@
 /* Scss Variables */
 $--color-background-dark: #1f2024;
 $--color-background-light: #8ae9ec;
+$--color-control-hover: rgba(255, 255, 255, 0.438);
 
 $--size-control-button: 1.8rem;
 /* Css Reset */
@@ -109,12 +110,37 @@ body {
 
         &--selected {
           scale: 1.01;
-          background-color: rgba(255, 255, 255, 0.438);
+          background-color: $--color-control-hover;
         }
       }
     }
 
     &__canvas-controls {
+      &__button {
+        width: $--size-control-button;
+        height: $--size-control-button;
+
+        margin-inline: auto;
+        margin-bottom: 0.4rem;
+
+        background-color: transparent;
+
+        border: none;
+
+        background-repeat: no-repeat;
+        background-position: 50%;
+
+        &:nth-child(1) {
+          background-image: url("../assets/images/x.svg");
+        }
+        &:nth-child(2) {
+          background-image: url("../assets/images/file-plus.svg");
+        }
+
+        &:hover {
+          background-color: $--color-control-hover;
+        }
+      }
     }
 
     &__hdivider {
