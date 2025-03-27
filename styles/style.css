@@ -46,7 +46,7 @@ body {
   border: 2px solid #1f2024;
   border-radius: 0.9rem;
   margin-inline: auto;
-  margin-top: 0.5rem;
+  margin-block: 0.3rem;
 }
 .paint-paper__controls__color-controls__button:nth-child(1) {
   background-color: #1f2024;
@@ -71,7 +71,7 @@ body {
   background-size: 1.5rem;
   background-repeat: no-repeat;
   background-position: 50%;
-  margin-block: 0.1rem;
+  margin-block: 0.3rem;
 }
 .paint-paper__controls__tool-controls__button:nth-child(1) {
   background-image: url("../assets/images/pen-line-svgrepo-com.svg");
@@ -87,7 +87,7 @@ body {
   width: 1.8rem;
   height: 1.8rem;
   margin-inline: auto;
-  margin-bottom: 0.4rem;
+  margin-block: 0.3rem;
   background-color: transparent;
   border: none;
   background-repeat: no-repeat;
@@ -107,7 +107,7 @@ body {
   margin-inline: 10%;
   background-color: #1f2024;
   border: none;
-  margin-block: 0.5rem;
+  margin-block: 0.3rem;
 }
 .paint-paper__upper-decoration {
   height: 5%;

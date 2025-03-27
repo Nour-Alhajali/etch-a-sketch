@@ -4,6 +4,8 @@ $--color-background-light: #8ae9ec;
 $--color-control-hover: rgba(255, 255, 255, 0.438);
 
 $--size-control-button: 1.8rem;
+
+$--size-margin-between-controls: 0.3rem;
 /* Css Reset */
 * {
   margin: 0;
@@ -65,7 +67,7 @@ body {
 
         margin-inline: auto;
 
-        margin-top: 0.5rem;
+        margin-block: $--size-margin-between-controls;
 
         &:nth-child(1) {
           background-color: $--color-background-dark;
@@ -99,7 +101,8 @@ body {
         background-repeat: no-repeat;
         background-position: 50%;
 
-        margin-block: 0.1rem;
+        margin-block: $--size-margin-between-controls;
+
         &:nth-child(1) {
           background-image: url("../assets/images/pen-line-svgrepo-com.svg");
         }
@@ -121,7 +124,7 @@ body {
         height: $--size-control-button;
 
         margin-inline: auto;
-        margin-bottom: 0.4rem;
+        margin-block: $--size-margin-between-controls;
 
         background-color: transparent;
 
@@ -152,7 +155,7 @@ body {
 
       border: none;
 
-      margin-block: 0.5rem;
+      margin-block: $--size-margin-between-controls;
     }
   }
   &__upper-decoration {
