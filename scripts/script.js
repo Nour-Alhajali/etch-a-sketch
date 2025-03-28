@@ -102,7 +102,7 @@ function handlePixelPainting() {
     if (currentPenAction == penActions[0]) {
       event.target.style.backgroundColor = currentPenColor;
     } else {
-      event.target.style.backgroundColor = "#FFFFFF";
+      event.target.style.backgroundColor = "";
     }
   }
 
@@ -209,7 +209,7 @@ function handleCanvasControls() {
     const gridElementChildren = gridElement.children;
 
     for (let i = 0; i < gridElementChildren.length; i++) {
-      gridElementChildren[i].style.backgroundColor = "#FFFFFF";
+      gridElementChildren[i].style.backgroundColor = "";
     }
   }
 
