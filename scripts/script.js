@@ -24,13 +24,13 @@ const canvasControlsElement = document.querySelector(
 
 const topLayerElement = document.querySelector(".paint-paper__top-layer");
 const newCanvasPopUp = document.querySelector(
-  ".paint-paper__top-layer__new-canvas-popup"
+  ".paint-paper__top-layer__new-canvas-pop-up"
 );
 const newCanvasSizeInput = document.querySelector(
-  ".paint-paper__top-layer__new-canvas-popup__input-label__input"
+  ".paint-paper__top-layer__new-canvas-popup__input-container-label__input"
 );
 const newCanvasButton = document.querySelector(
-  ".paint-paper__top-layer__new-canvas-popup__new-canvas-button"
+  ".paint-paper__top-layer__new-canvas-popup__create-button"
 );
 const newCanvasInfoLabel = document.querySelector(
   ".paint-paper__top-layer__new-canvas-popup__required-info-label"
