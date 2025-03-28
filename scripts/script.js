@@ -21,14 +21,31 @@ let selectedToolControlId = "#";
 const canvasControlsElement = document.querySelector(
   ".paint-paper__controls__canvas-controls"
 );
+
+const topLayerElement = document.querySelector(".paint-paper__top-layer");
+const newCanvasPopUp = document.querySelector(
+  ".paint-paper__top-layer__new-canvas-popup"
+);
+const newCanvasSizeInput = document.querySelector(
+  ".paint-paper__top-layer__new-canvas-popup__input-label__input"
+);
+const newCanvasButton = document.querySelector(
+  ".paint-paper__top-layer__new-canvas-popup__new-canvas-button"
+);
+const newCanvasInfoLabel = document.querySelector(
+  ".paint-paper__top-layer__new-canvas-popup__required-info-label"
+);
 constructPixelGrid(16);
 handlePixelPainting();
 preventBrowserDragBehaviour();
 handleColorControls();
 handleToolControls();
 handleCanvasControls();
+handleNewCanvasControls();
 
 function constructPixelGrid(width, height = width) {
+  deleteCanvas();
+
   // Spawn pixel elements the size of the canvas
   for (let i = 0; i < width * height; i++) {
     gridElement.appendChild(getNewPixel(width, height));
@@ -48,6 +65,15 @@ function constructPixelGrid(width, height = width) {
 
     // plugClickEventListener(pixelElement);
     return pixelElement;
+  }
+
+  function deleteCanvas() {
+    const gridElementChildren = gridElement.children;
+    const gridElementChildrenCount = gridElementChildren.length;
+
+    for (let i = gridElementChildrenCount - 1; i >= 0; i--) {
+      gridElement.removeChild(gridElementChildren[i]);
+    }
   }
 }
 
@@ -178,4 +204,19 @@ function handleCanvasControls() {
       gridElementChildren[i].style.backgroundColor = "#FFFFFF";
     }
   }
+}
+
+function handleNewCanvasControls() {
+  newCanvasButton.addEventListener("click", (e) => {
+    const canvasSize = newCanvasSizeInput.value;
+    if (canvasSize <= 100 && canvasSize >= 16) {
+      constructPixelGrid(canvasSize);
+
+      topLayerElement.style.zIndex = -1;
+    } else {
+      newCanvasInfoLabel.classList.add(
+        "paint-paper__top-layer__new-canvas-popup__required-info-label--invalid"
+      );
+    }
+  });
 }

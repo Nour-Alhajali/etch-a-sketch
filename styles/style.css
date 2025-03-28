@@ -43,7 +43,7 @@ body {
 .paint-paper__controls__color-controls__button {
   width: 1.8rem;
   height: 1.8rem;
-  border: none;
+  border: 1px solid #1f2024;
   border-radius: 0.36rem;
   margin-inline: auto;
   margin-block: 0.3rem;
@@ -52,7 +52,7 @@ body {
   background-color: #1f2024;
 }
 .paint-paper__controls__color-controls__button:nth-child(2) {
-  background-color: red;
+  background-color: #8ae9ec;
 }
 .paint-paper__controls__color-controls__button:nth-child(3) {
   position: relative;
@@ -145,6 +145,59 @@ body {
   align-content: start;
   width: 100%;
   height: 100%;
+}
+.paint-paper__top-layer {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(31, 32, 36, 0.431372549);
+  position: absolute;
+  top: 0px;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.paint-paper__top-layer__new-canvas-popup {
+  width: 40%;
+  height: 25%;
+  background-color: #1f2024;
+  border: 2px solid #8ae9ec;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 0.8rem;
+}
+.paint-paper__top-layer__new-canvas-popup__required-info-label {
+  color: white;
+  font-size: 12px;
+  margin-right: 0.6rem;
+}
+.paint-paper__top-layer__new-canvas-popup__required-info-label--invalid {
+  color: red;
+  font-size: 14px;
+}
+.paint-paper__top-layer__new-canvas-popup__input-label {
+  color: white;
+  font-size: 1.3rem;
+  padding-left: 1rem;
+}
+.paint-paper__top-layer__new-canvas-popup__input-label__input {
+  width: 3rem;
+  height: 2rem;
+  border-radius: 0.4rem;
+  border: none;
+  text-align: center;
+  font-size: 1rem;
+}
+.paint-paper__top-layer__new-canvas-popup__new-canvas-button {
+  background-color: #8ae9ec;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #1f2024;
+  border-radius: 0.6rem;
 }
 
 .pixel {
