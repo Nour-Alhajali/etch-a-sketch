@@ -1,5 +1,6 @@
 const gridElement = document.querySelector(".paint-paper__grid");
 
+//Color Controls
 const colorControlsElement = document.querySelector(
   ".paint-paper__controls__color-controls"
 );
@@ -11,6 +12,7 @@ const defaultPenColor2 = "#8ae9ec";
 let currentPenColor = defaultPenColor1;
 let selectedColorControlId = "#";
 
+//Tool Controls
 const toolControlsElement = document.querySelector(
   ".paint-paper__controls__tool-controls"
 );
@@ -18,19 +20,21 @@ const penActions = ["paint", "erase"];
 let currentPenAction = penActions[0];
 let selectedToolControlId = "#";
 
+//Canvas Controls
 const canvasControlsElement = document.querySelector(
   ".paint-paper__controls__canvas-controls"
 );
 
+//New Canvas PopUp
 const topLayerElement = document.querySelector(".paint-paper__top-layer");
 
-const newCanvasSizeInput = document.querySelector(
+const newCanvasSizeInputElement = document.querySelector(
   ".paint-paper__top-layer__new-canvas-popup__input-container-label__input"
 );
-const newCanvasButton = document.querySelector(
+const newCanvasButtonElement = document.querySelector(
   ".paint-paper__top-layer__new-canvas-popup__create-button"
 );
-const newCanvasInfoLabel = document.querySelector(
+const newCanvasInfoLabelElement = document.querySelector(
   ".paint-paper__top-layer__new-canvas-popup__required-info-label"
 );
 
@@ -217,14 +221,14 @@ function handleCanvasControls() {
 }
 
 function handleNewCanvasButton() {
-  newCanvasButton.addEventListener("click", (e) => {
-    const canvasSize = newCanvasSizeInput.value;
+  newCanvasButtonElement.addEventListener("click", (e) => {
+    const canvasSize = newCanvasSizeInputElement.value;
     if (canvasSize <= 60 && canvasSize >= 8) {
       constructPixelGrid(canvasSize);
 
       hideNewCanvasPopUp();
     } else {
-      newCanvasInfoLabel.classList.add(
+      newCanvasInfoLabelElement.classList.add(
         "paint-paper__top-layer__new-canvas-popup__required-info-label--invalid"
       );
     }
