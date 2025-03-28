@@ -7,6 +7,7 @@ const colorControlsElement = document.querySelector(
 const colorControlCustomElement = document.querySelector(
   "#color-control-custom"
 );
+
 const defaultPenColor1 = "#1f2024";
 const defaultPenColor2 = "#8ae9ec";
 let currentPenColor = defaultPenColor1;
@@ -29,13 +30,13 @@ const canvasControlsElement = document.querySelector(
 const topLayerElement = document.querySelector(".paint-paper__top-layer");
 
 const newCanvasSizeInputElement = document.querySelector(
-  ".paint-paper__top-layer__new-canvas-popup__input-container-label__input"
+  ".paint-paper__top-layer__new-canvas-pop-up__input-container-label__input"
 );
 const newCanvasButtonElement = document.querySelector(
-  ".paint-paper__top-layer__new-canvas-popup__create-button"
+  ".paint-paper__top-layer__new-canvas-pop-up__new-canvas-button"
 );
 const newCanvasInfoLabelElement = document.querySelector(
-  ".paint-paper__top-layer__new-canvas-popup__required-info-label"
+  ".paint-paper__top-layer__new-canvas-pop-up__required-info-label"
 );
 
 constructPixelGrid(16);
