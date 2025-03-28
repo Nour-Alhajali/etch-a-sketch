@@ -35,6 +35,7 @@ const newCanvasButton = document.querySelector(
 const newCanvasInfoLabel = document.querySelector(
   ".paint-paper__top-layer__new-canvas-popup__required-info-label"
 );
+
 constructPixelGrid(16);
 handlePixelPainting();
 preventBrowserDragBehaviour();
@@ -194,7 +195,14 @@ function handleToolControls() {
 
 function handleCanvasControls() {
   canvasControlsElement.addEventListener("click", (e) => {
-    eraseCanvasPixels();
+    switch (e.target.id) {
+      case "canvas-control-clear":
+        eraseCanvasPixels();
+        break;
+      case "canvas-control-new":
+        displayNewCanvasPopUp();
+        break;
+    }
   });
 
   function eraseCanvasPixels() {
@@ -204,19 +212,27 @@ function handleCanvasControls() {
       gridElementChildren[i].style.backgroundColor = "#FFFFFF";
     }
   }
+
+  function displayNewCanvasPopUp() {
+    topLayerElement.style.zIndex = 0;
+  }
 }
 
 function handleNewCanvasControls() {
   newCanvasButton.addEventListener("click", (e) => {
     const canvasSize = newCanvasSizeInput.value;
-    if (canvasSize <= 100 && canvasSize >= 16) {
+    if (canvasSize <= 60 && canvasSize >= 8) {
       constructPixelGrid(canvasSize);
 
-      topLayerElement.style.zIndex = -1;
+      hideNewCanvasPopUp();
     } else {
       newCanvasInfoLabel.classList.add(
         "paint-paper__top-layer__new-canvas-popup__required-info-label--invalid"
       );
     }
   });
+
+  function hideNewCanvasPopUp() {
+    topLayerElement.style.zIndex = -1;
+  }
 }
