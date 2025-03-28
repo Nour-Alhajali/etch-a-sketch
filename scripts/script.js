@@ -42,10 +42,10 @@ preventBrowserDragBehaviour();
 handleColorControls();
 handleToolControls();
 handleCanvasControls();
-handleNewCanvasControls();
+handleNewCanvasButton();
 
 function constructPixelGrid(width, height = width) {
-  deleteCanvas();
+  deleteGridPixels();
 
   // Spawn pixel elements the size of the canvas
   for (let i = 0; i < width * height; i++) {
@@ -68,7 +68,7 @@ function constructPixelGrid(width, height = width) {
     return pixelElement;
   }
 
-  function deleteCanvas() {
+  function deleteGridPixels() {
     const gridElementChildren = gridElement.children;
     const gridElementChildrenCount = gridElementChildren.length;
 
@@ -218,7 +218,7 @@ function handleCanvasControls() {
   }
 }
 
-function handleNewCanvasControls() {
+function handleNewCanvasButton() {
   newCanvasButton.addEventListener("click", (e) => {
     const canvasSize = newCanvasSizeInput.value;
     if (canvasSize <= 60 && canvasSize >= 8) {
