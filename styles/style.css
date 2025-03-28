@@ -152,7 +152,7 @@ body {
   background-color: rgba(31, 32, 36, 0.431372549);
   position: absolute;
   top: 0px;
-  z-index: 0;
+  z-index: -1;
   display: flex;
   justify-content: center;
   align-items: center;
