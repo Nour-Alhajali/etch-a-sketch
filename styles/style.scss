@@ -6,6 +6,8 @@ $--color-control-hover: rgba(255, 255, 255, 0.438);
 $--size-control-button: 1.8rem;
 
 $--size-margin-between-controls: 0.3rem;
+
+$--size-canvas-border-radius: 1rem;
 /* Css Reset */
 * {
   margin: 0;
@@ -33,9 +35,12 @@ body {
   border: 2px solid $--color-background-light;
 
   position: relative;
+
+  border-radius: $--size-canvas-border-radius;
   &__controls {
     width: 5%;
-    margin-block: 20%;
+    height: fit-content;
+    margin-block: auto;
 
     background-color: black;
     border-radius: 0.5rem;
@@ -181,15 +186,15 @@ body {
     }
   }
   &__upper-decoration {
-    height: 5%;
-    margin-inline: 30%;
+    height: 4%;
+    margin-inline: 35%;
 
     background-color: $--color-background-light;
 
     position: absolute;
     left: 0%;
     right: 0%;
-    top: -3%;
+    top: -2%;
     border-radius: 1rem;
 
     display: flex;
@@ -214,6 +219,9 @@ body {
 
     width: 100%;
     height: 100%;
+
+    border-radius: $--size-canvas-border-radius;
+    overflow: hidden;
   }
 
   &__top-layer {
@@ -302,4 +310,58 @@ body {
 }
 .pixel:hover {
   background-color: $--color-background-dark;
+}
+
+.nours-piece {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+
+  &__nour-pic {
+    width: 5rem;
+    height: 5rem;
+
+    border: 2px $--color-background-light solid;
+    border-radius: 3rem;
+
+    background-image: url("../assets/images/Nour-Profile-Pic.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 0% 30%;
+
+    background-color: red;
+
+    cursor: not-allowed;
+  }
+  &__link-icons {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    &__icon {
+      width: 2rem;
+      height: 2rem;
+
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: 50%;
+
+      border-radius: 1.5rem;
+
+      &--github {
+        background-image: url("../assets/images/github.png");
+        &:hover {
+          scale: 1.1;
+        }
+      }
+      &--linkedin {
+        background-image: url("../assets/images/linkedin.png");
+        &:hover {
+          scale: 1.1;
+        }
+      }
+    }
+  }
 }
