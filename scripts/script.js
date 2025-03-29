@@ -50,11 +50,13 @@ handleNewCanvasButton();
 
 function constructPixelGrid(width, height = width) {
   deleteGridPixels();
-
+  let tempDocumentFragment = new DocumentFragment();
   // Spawn pixel elements the size of the canvas
+
   for (let i = 0; i < width * height; i++) {
-    gridElement.appendChild(getNewPixel(width, height));
+    tempDocumentFragment.append(getNewPixel(width, height));
   }
+  gridElement.appendChild(tempDocumentFragment);
 
   function getNewPixel(gridWidthInPixels, gridHeightInPixels) {
     //Get pixel width and height according to actual canvas size the the size in pixel elements
@@ -66,6 +68,9 @@ function constructPixelGrid(width, height = width) {
 
     const pixelElement = document.createElement("div");
     pixelElement.classList.add("pixel");
+    if (gridWidthInPixels <= 100) {
+      pixelElement.classList.add("pixel--border");
+    }
     pixelElement.style.cssText = `width: ${pixelWidth}px; height: ${pixelHeight}px; flex: 0 0 auto`;
 
     // plugClickEventListener(pixelElement);
@@ -239,7 +244,7 @@ function handleCanvasControls() {
 function handleNewCanvasButton() {
   newCanvasButtonElement.addEventListener("click", (e) => {
     const canvasSize = newCanvasSizeInputElement.value;
-    if (canvasSize <= 60 && canvasSize >= 8) {
+    if (canvasSize <= 200 && canvasSize >= 8) {
       constructPixelGrid(canvasSize);
 
       hideNewCanvasPopUp();

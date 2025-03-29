@@ -294,9 +294,11 @@ body {
 }
 
 .pixel {
-  border: 1px solid $--color-background-dark;
-
   flex: 0 0 auto;
+
+  &--border {
+    border: 1px solid $--color-background-dark;
+  }
 }
 .pixel:hover {
   background-color: $--color-background-dark;
