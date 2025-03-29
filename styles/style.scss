@@ -365,3 +365,10 @@ body {
     }
   }
 }
+
+@media (max-width: 1000px) {
+  .nours-piece {
+    opacity: 0;
+    background-color: red;
+  }
+}

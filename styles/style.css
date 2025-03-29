@@ -263,4 +263,11 @@ body {
 }
 .nours-piece__link-icons__icon--linkedin:hover {
   scale: 1.1;
+}
+
+@media (max-width: 1000px) {
+  .nours-piece {
+    opacity: 0;
+    background-color: red;
+  }
 }/*# sourceMappingURL=style.css.map */
