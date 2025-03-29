@@ -50,28 +50,28 @@ handleCanvasControls();
 handleNewCanvasButton();
 updateCanvasOnWindowResize();
 
-function constructPixelGrid(width, height = width) {
-  currentGridSize = width;
+function constructPixelGrid(size) {
+  currentGridSize = size;
   deleteGridPixels();
   let tempDocumentFragment = new DocumentFragment();
   // Spawn pixel elements the size of the canvas
 
-  for (let i = 0; i < width * height; i++) {
-    tempDocumentFragment.append(getNewPixel(width, height));
+  for (let i = 0; i < size * size; i++) {
+    tempDocumentFragment.append(getNewPixel(size));
   }
   gridElement.appendChild(tempDocumentFragment);
 
-  function getNewPixel(gridWidthInPixels, gridHeightInPixels) {
+  function getNewPixel(gridSizeInPixels) {
     //Get pixel width and height according to actual canvas size the the size in pixel elements
     const gridWidth = gridElement.getBoundingClientRect().width;
     const gridHeight = gridElement.getBoundingClientRect().height;
 
-    let pixelWidth = gridWidth / gridWidthInPixels;
-    const pixelHeight = gridHeight / gridHeightInPixels;
+    const pixelWidth = gridWidth / gridSizeInPixels;
+    const pixelHeight = gridHeight / gridSizeInPixels;
 
     const pixelElement = document.createElement("div");
     pixelElement.classList.add("pixel");
-    if (gridWidthInPixels <= 100) {
+    if (gridSizeInPixels <= 100) {
       pixelElement.classList.add("pixel--border");
     }
     pixelElement.style.cssText = `width: ${pixelWidth}px; height: ${pixelHeight}px; flex: 0 0 auto`;
