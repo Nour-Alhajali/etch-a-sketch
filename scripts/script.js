@@ -1,4 +1,5 @@
 const gridElement = document.querySelector(".paint-paper__grid");
+let currentGridSize = 16;
 
 //Color Controls
 const colorControlsElement = document.querySelector(
@@ -47,8 +48,10 @@ handleColorControls();
 handleToolControls();
 handleCanvasControls();
 handleNewCanvasButton();
+updateCanvasOnWindowResize();
 
 function constructPixelGrid(width, height = width) {
+  currentGridSize = width;
   deleteGridPixels();
   let tempDocumentFragment = new DocumentFragment();
   // Spawn pixel elements the size of the canvas
@@ -258,4 +261,10 @@ function handleNewCanvasButton() {
   function hideNewCanvasPopUp() {
     topLayerElement.style.zIndex = -1;
   }
+}
+
+function updateCanvasOnWindowResize() {
+  window.onresize = () => {
+    constructPixelGrid(currentGridSize);
+  };
 }

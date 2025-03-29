@@ -3,7 +3,7 @@ $--color-background-dark: #1f2024;
 $--color-background-light: #8ae9ec;
 $--color-control-hover: rgba(255, 255, 255, 0.438);
 
-$--size-control-button: 1.8rem;
+$--size-control-button-max: 1.8rem;
 
 $--size-margin-between-controls: 0.3rem;
 
@@ -29,8 +29,8 @@ body {
 }
 
 .paint-paper {
-  width: min(45rem, 95vw);
-  height: min(45rem, 95vw);
+  width: min(45rem, 90vw);
+  height: min(45rem, 90vw);
 
   border: 2px solid $--color-background-light;
 
@@ -38,12 +38,12 @@ body {
 
   border-radius: $--size-canvas-border-radius;
   &__controls {
-    width: 5%;
+    width: min(10rem, 5%);
     height: fit-content;
     margin-block: auto;
 
     background-color: black;
-    border-radius: 0.5rem;
+    border-radius: min(1vw, 0.5rem);
 
     position: absolute;
     top: 0%;
@@ -64,11 +64,11 @@ body {
 
     &__color-controls {
       &__button {
-        width: $--size-control-button;
-        height: $--size-control-button;
+        width: min(3.5vw, $--size-control-button-max);
+        height: min(3.5vw, $--size-control-button-max);
 
         border: none;
-        border-radius: $--size-control-button / 5;
+        border-radius: $--size-control-button-max / 5;
 
         margin-inline: auto;
 
@@ -96,8 +96,8 @@ body {
           // pseudo-class nth-child can't have a suffix so select input by tag name instead of class
           & input {
             background-color: transparent;
-            width: $--size-control-button * 2;
-            height: $--size-control-button * 2;
+            width: $--size-control-button-max * 2;
+            height: $--size-control-button-max * 2;
 
             margin: 0;
             padding: 0;
@@ -116,8 +116,8 @@ body {
 
     &__tool-controls {
       &__button {
-        width: $--size-control-button;
-        height: $--size-control-button;
+        width: min(3.5vw, $--size-control-button-max);
+        height: min(3.5vw, $--size-control-button-max);
 
         margin-inline: auto;
 
@@ -147,8 +147,8 @@ body {
 
     &__canvas-controls {
       &__button {
-        width: $--size-control-button;
-        height: $--size-control-button;
+        width: min(3.5vw, $--size-control-button-max);
+        height: min(3.5vw, $--size-control-button-max);
 
         margin-inline: auto;
         margin-block: $--size-margin-between-controls;
