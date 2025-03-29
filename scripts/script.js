@@ -7,6 +7,7 @@ const colorControlsElement = document.querySelector(
 const colorControlCustomElement = document.querySelector(
   "#color-control-custom"
 );
+const colorControlRandomElement = document.querySelector("#color-control-2");
 
 const defaultPenColor1 = "#1f2024";
 const defaultPenColor2 = "#8ae9ec";
@@ -103,9 +104,23 @@ function handlePixelPainting() {
 
   function onPixelClicked(event) {
     if (currentPenAction == penActions[0]) {
+      if (selectedColorControlId == colorControlRandomElement.id) {
+        currentPenColor = generateRandomColor();
+      }
       event.target.style.backgroundColor = currentPenColor;
     } else {
       event.target.style.backgroundColor = "";
+    }
+  }
+
+  function generateRandomColor() {
+    let random_r_value = get_random_value_0to255();
+    let random_g_value = get_random_value_0to255();
+    let random_b_value = get_random_value_0to255();
+
+    return `rgb(${random_r_value}, ${random_g_value}, ${random_b_value})`;
+    function get_random_value_0to255() {
+      return Math.floor(Math.random() * 255);
     }
   }
 

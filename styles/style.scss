@@ -62,7 +62,7 @@ body {
         width: $--size-control-button;
         height: $--size-control-button;
 
-        border: 1px solid $--color-background-dark;
+        border: none;
         border-radius: $--size-control-button / 5;
 
         margin-inline: auto;
@@ -73,7 +73,14 @@ body {
           background-color: $--color-background-dark;
         }
         &:nth-child(2) {
-          background-color: $--color-background-light;
+          background-color: black;
+
+          z-index: 10;
+
+          background-image: url("../assets/images/color-wheel.png");
+          background-position: 50% 50%;
+          background-size: 200%;
+          background-repeat: no-repeat;
         }
         &:nth-child(3) {
           position: relative;

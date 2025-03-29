@@ -43,7 +43,7 @@ body {
 .paint-paper__controls__color-controls__button {
   width: 1.8rem;
   height: 1.8rem;
-  border: 1px solid #1f2024;
+  border: none;
   border-radius: 0.36rem;
   margin-inline: auto;
   margin-block: 0.3rem;
@@ -52,7 +52,12 @@ body {
   background-color: #1f2024;
 }
 .paint-paper__controls__color-controls__button:nth-child(2) {
-  background-color: #8ae9ec;
+  background-color: black;
+  z-index: 10;
+  background-image: url("../assets/images/color-wheel.png");
+  background-position: 50% 50%;
+  background-size: 200%;
+  background-repeat: no-repeat;
 }
 .paint-paper__controls__color-controls__button:nth-child(3) {
   position: relative;
