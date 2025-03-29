@@ -366,9 +366,27 @@ body {
   }
 }
 
+.note {
+  width: 2rem;
+  height: 2rem;
+
+  background-color: white;
+  background-image: url("../assets/images/note-text-svgrepo-com.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+  border-radius: 0.4rem;
+
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+
 @media (max-width: 1000px) {
   .nours-piece {
     opacity: 0;
-    background-color: red;
+  }
+  .note {
+    opacity: 0;
   }
 }
